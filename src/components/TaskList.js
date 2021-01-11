@@ -1,6 +1,8 @@
 import React from 'react';
 import Task from './Task';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { archiveTask, pinTask } from '../lib/redux';
 
 export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   const events = {
@@ -25,7 +27,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   );
 }
 
-TaskList.propTypes = {
+PureTaskList.propTypes = {
   /** Checks if it's in loading state */
   loading: PropTypes.bool,
   /** The list of tasks */
@@ -35,7 +37,7 @@ TaskList.propTypes = {
   /** Event to change the task to archived */
   onArchiveTask: PropTypes.func,
 };
-TaskList.defaultProps = {
+PureTaskList.defaultProps = {
   loading: false,
 };
 
