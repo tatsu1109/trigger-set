@@ -3,13 +3,12 @@ import CategoryList from './CategoryList';
 // import PropTypes from 'prop-types';
 import { makeStyles, FormGroup } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     area: {
         "position": "relative",
         "border": "solid 1px #f00",
         "border-radius": "5px",
         "background-color": "white"
- 
     },
     area__label: {
         "position": "absolute",
@@ -31,13 +30,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function FormGroupWithLabel({ data, listCount }) {
+export default function FormGroupWithLabel({ label, data, listCount, noneData}) {
     const classes = useStyles();
     
     return (
         <FormGroup className={classes.area}>
-            <div className={classes.area__label}>ラベル</div>
-            { [...Array(listCount)].map(() => <CategoryList data={data} /> )}
+            <div className={classes.area__label}>{label}</div>
+            {[...Array(listCount)].map((_, index) => <CategoryList key={index} data={data} noneData={noneData}/> )}
         </FormGroup>
   );
 }

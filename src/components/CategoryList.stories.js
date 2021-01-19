@@ -19,5 +19,6 @@ Default.args = {
       category: 'B', 
       itemList: ['BBA', 'BBB'],
     },
-  ]
+  ],
+  noneData:'None'
 };
