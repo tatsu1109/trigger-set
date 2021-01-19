@@ -20,5 +20,7 @@ Default.args = {
       itemList: ['BBA', 'BBB'],
     },
   ],
-  listCount: 4
+  listCount: 4,
+  label: 'ラベル',
+  noneData:'None'
 };
