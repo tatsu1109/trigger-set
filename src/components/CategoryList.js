@@ -8,12 +8,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CategoryList({ data, noneData }) {
+export default function CategoryList({ data, noneData, handleChange }) {
   const classes = useStyles();
 
   return (
       <FormControl className={classes.formControl}>
-      <Select native defaultValue="None" id="grouped-select">
+      <Select
+        native
+        defaultValue="None"
+        id="grouped-select"
+        onChange={event => handleChange(event.target.value)}
+      >
         <option value={noneData}>{noneData}</option >
         {
           data.map(item => {

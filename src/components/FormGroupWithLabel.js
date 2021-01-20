@@ -30,13 +30,20 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function FormGroupWithLabel({ label, data, listCount, noneData}) {
+export default function FormGroupWithLabel({ label, data, listCount, noneData, handleChange}) {
     const classes = useStyles();
     
     return (
         <FormGroup className={classes.area}>
             <div className={classes.area__label}>{label}</div>
-            {[...Array(listCount)].map((_, index) => <CategoryList key={index} data={data} noneData={noneData}/> )}
+            {
+                [...Array(listCount)].map((_, index) =>
+                    <CategoryList
+                        handleChange={value => handleChange(value, index)}
+                        key={index}
+                        data={data}
+                        noneData={noneData}
+                    />)}
         </FormGroup>
   );
 }
